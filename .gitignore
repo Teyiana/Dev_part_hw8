@@ -1,0 +1,4 @@
+﻿.gradle/
+.idea/
+build/
+h2/h2/bin/db/db.mv.db

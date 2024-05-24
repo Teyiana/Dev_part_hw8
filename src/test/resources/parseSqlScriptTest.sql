@@ -1,0 +1,26 @@
+--insert query 1
+INSERT INTO client (NAME)
+VALUES('Henry'), ('Nora');
+
+--insert query 2
+INSERT INTO project (ID, NAME, CLIENT_ID, START_DATE, FINISH_DATE)
+VALUES ('11', 'WebTech Solutions', '6', '2017-05-17', '2018-04-04'),
+    ('12', 'Clear Air', '4', '2019-03-12', '2021-04-05');
+
+
+--select query
+SELECT NAME,  MONTH_COUNT
+FROM (
+         SELECT NAME, DATEDIFF(mm, START_DATE, FINISH_DATE) as MONTH_COUNT
+         FROM PROJECT
+     )
+WHERE MONTH_COUNT = (SELECT DATEDIFF(mm, START_DATE, FINISH_DATE)  as COUNT  FROM PROJECT ORDER BY COUNT  DESC LIMIT 1)
+ORDER BY MONTH_COUNT DESC;
+
+--drop query
+DROP TABLE project;
+
+
+
+
+
